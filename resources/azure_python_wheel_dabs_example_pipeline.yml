@@ -1,0 +1,12 @@
+# The main pipeline for azure_python_wheel_dabs_example
+resources:
+  pipelines:
+    azure_python_wheel_dabs_example_pipeline:
+      name: azure_python_wheel_dabs_example_pipeline
+      target: azure_python_wheel_dabs_example_${bundle.environment}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: /Workspace/${workspace.file_path}/src
